@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="print:hidden mt-auto grid grid-cols-[1fr_auto_1fr] flex-wrap items-center gap-4 border-t border-neutral-200 px-6 py-6 dark:border-neutral-800">
+    <footer className="print:hidden mt-auto grid grid-cols-[1fr_auto_1fr] flex-wrap items-center gap-3 border-t border-neutral-200 px-6 py-3 dark:border-neutral-800">
       <p className="justify-self-start font-mono text-xs text-neutral-500 dark:text-neutral-400">
         © {new Date().getFullYear()} Tailwind CSS v4 Cheatsheet
       </p>
