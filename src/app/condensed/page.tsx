@@ -69,6 +69,10 @@ export default function Condensed() {
           <Column groups={leftGroups} />
           <Column groups={rightGroups} />
         </section>
+
+        <p className="hidden print:block pt-2 text-center text-[9px] text-neutral-400">
+          imatlas.dev — made with {"<3"}
+        </p>
       </div>
     </div>
   );
