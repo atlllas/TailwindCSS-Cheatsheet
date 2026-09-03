@@ -32,7 +32,7 @@ export default function Home() {
               Extended, grouped reference for Tailwind CSS v4 utility classes —
               compiled from the official docs so it actually reflects v4, not
               v3. Need something you can keep on your desk?{" "}
-              <Link href="/condensed" className="underline">
+              <Link href="/condensed" className="text-sky-600 dark:text-sky-400 hover:underline">
                 Try the condensed version
               </Link>
               .
@@ -91,7 +91,7 @@ export default function Home() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 gap-x-8 print:gap-x-6 gap-y-3 print:gap-y-1">
                   {group.entries.map((entry) => (
                     <li key={entry.class} className="entry-row">
-                      <code className="block font-mono text-xs print:text-[10px] text-indigo-700 dark:text-indigo-400 break-words">
+                      <code className="block font-mono text-xs print:text-[10px] text-sky-600 dark:text-sky-400 break-words">
                         {entry.class}
                       </code>
                       <span className="block text-xs print:text-[9px] text-neutral-500 dark:text-neutral-400 mt-0.5 print:mt-0">

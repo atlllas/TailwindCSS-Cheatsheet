@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-6 py-24 text-center">
-      <p className="font-mono text-sm text-indigo-600 dark:text-indigo-400">404</p>
+      <p className="font-mono text-sm text-sky-600 dark:text-sky-400">404</p>
       <h1 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
         This class doesn&apos;t exist
       </h1>
@@ -19,7 +19,7 @@ export default function NotFound() {
       <div className="mt-8 flex items-center gap-3 text-sm">
         <Link
           href="/"
-          className="rounded-md bg-neutral-900 px-4 py-2 font-medium text-white hover:bg-neutral-700 transition-colors"
+          className="rounded-md bg-gradient-to-r from-sky-500 to-blue-600 px-4 py-2 font-medium text-white transition-opacity hover:opacity-90"
         >
           Extended cheatsheet
         </Link>

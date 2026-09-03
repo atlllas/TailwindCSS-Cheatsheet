@@ -47,7 +47,7 @@ export default function PrivacyPage() {
                   href="https://imatlas.dev"
                   target="_blank"
                   rel="noopener"
-                  className="text-indigo-600 hover:underline dark:text-indigo-400"
+                  className="text-sky-600 hover:underline dark:text-sky-400"
                 >
                   imatlas.dev
                 </a>

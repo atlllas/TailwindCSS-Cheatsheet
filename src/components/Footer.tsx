@@ -25,7 +25,7 @@ export default function Footer() {
           href="https://imatlas.dev"
           target="_blank"
           rel="noopener"
-          className="justify-self-end font-mono text-xs text-neutral-500 transition-colors hover:text-indigo-600 dark:text-neutral-400 dark:hover:text-indigo-400"
+          className="justify-self-end font-mono text-xs text-neutral-500 transition-colors hover:text-sky-600 dark:text-neutral-400 dark:hover:text-sky-400"
         >
           imatlas.dev
         </a>

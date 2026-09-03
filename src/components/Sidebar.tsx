@@ -12,7 +12,7 @@ export default function Sidebar({ items }: { items: NavItem[] }) {
             <li key={item.slug}>
               <a
                 href={`#${item.slug}`}
-                className="block rounded-md px-3 py-1.5 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
+                className="block rounded-md px-3 py-1.5 text-neutral-600 transition-colors hover:bg-sky-50 hover:text-sky-700 dark:text-neutral-400 dark:hover:bg-sky-950/40 dark:hover:text-sky-300"
               >
                 {item.title}
               </a>

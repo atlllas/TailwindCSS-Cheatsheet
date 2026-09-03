@@ -30,7 +30,7 @@ function Column({ groups }: { groups: typeof CONDENSED_GROUPS }) {
           <ul className="space-y-2.5 print:space-y-1">
             {group.entries.map((entry) => (
               <li key={entry.class}>
-                <code className="block font-mono text-xs print:text-[10px] text-indigo-700 dark:text-indigo-400 break-words">
+                <code className="block font-mono text-xs print:text-[10px] text-sky-600 dark:text-sky-400 break-words">
                   {entry.class}
                 </code>
                 <span className="block text-xs print:text-[9px] text-neutral-500 dark:text-neutral-400 mt-0.5 print:mt-0">
@@ -73,7 +73,7 @@ export default function Condensed() {
             <p className="mt-3 text-neutral-600 dark:text-neutral-400 max-w-2xl print:hidden">
               The utilities you reach for every day, on one printable page.
               Need the full list?{" "}
-              <Link href="/" className="underline">
+              <Link href="/" className="text-sky-600 dark:text-sky-400 hover:underline">
                 See the extended cheatsheet
               </Link>
               .
