@@ -358,6 +358,7 @@ export const CONDENSED_GROUPS: CheatGroup[] = [
       { class: "flex-1 / grow / shrink-0", description: "child sizing" },
       { class: "grid grid-cols-3 gap-4", description: "basic grid" },
       { class: "col-span-2 / row-span-2", description: "spanning" },
+      { class: "divide-y / divide-x / divide-gray-200", description: "border between list/menu children" },
     ],
   },
   {
@@ -380,6 +381,7 @@ export const CONDENSED_GROUPS: CheatGroup[] = [
       { class: "border / border-2 / border-gray-200", description: "border width / color" },
       { class: "rounded-lg / rounded-full / rounded-t-lg", description: "border radius (v4 renamed scale)" },
       { class: "shadow-sm / shadow-md / shadow-lg", description: "box shadow (v4 renamed scale)" },
+      { class: "bg-slate-500 / text-red-600 / border-emerald-400", description: "color name + shade (50-950) works on any bg-/text-/border-" },
     ],
   },
   {
@@ -399,6 +401,7 @@ export const CONDENSED_GROUPS: CheatGroup[] = [
       { class: "relative / absolute / inset-0 / top-0", description: "positioning" },
       { class: "z-10 / z-50", description: "stacking order" },
       { class: "overflow-hidden / overflow-auto", description: "overflow" },
+      { class: "object-cover / object-contain / object-center", description: "image/video fit & position" },
     ],
   },
   {
