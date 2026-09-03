@@ -32,10 +32,22 @@ body {
   }
 
   @page {
-    margin: 14mm 12mm;
+    margin: 10mm 10mm;
   }
 
+  /* Small, self-contained blocks (condensed page cards) should never split. */
   .group-card {
+    break-inside: avoid;
+  }
+
+  /* Extended page: a section can flow across a page break, but a heading
+     should never end up alone at the bottom, and a class+description pair
+     should never split — that's what actually caused near-empty pages. */
+  .section-heading {
+    break-after: avoid;
+  }
+
+  .entry-row {
     break-inside: avoid;
   }
 }
