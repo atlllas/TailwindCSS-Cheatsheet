@@ -47,7 +47,12 @@ function Column({ groups }: { groups: typeof CONDENSED_GROUPS }) {
 
 // Split by hand (rather than a plain half/half slice) so both printed
 // columns end up roughly the same height — group entry counts vary a lot.
-const LEFT_SLUGS = ["spacing-sizing", "backgrounds-borders", "states-responsive"];
+const LEFT_SLUGS = [
+  "spacing-sizing",
+  "backgrounds-borders",
+  "positioning-display",
+  "transforms-interactivity",
+];
 
 export default function Condensed() {
   const leftGroups = CONDENSED_GROUPS.filter((g) => LEFT_SLUGS.includes(g.slug));

@@ -389,7 +389,6 @@ export const CONDENSED_GROUPS: CheatGroup[] = [
       { class: "hover: / focus: / disabled: / dark:", description: "state & theme variants" },
       { class: "sm: / md: / lg: / xl: / 2xl:", description: "responsive prefixes (mobile-first, min-width)" },
       { class: "group-hover: / peer-checked:", description: "parent/sibling-driven states" },
-      { class: "transition / duration-200 / ease-in-out", description: "animate a property change" },
     ],
   },
   {
@@ -400,6 +399,26 @@ export const CONDENSED_GROUPS: CheatGroup[] = [
       { class: "relative / absolute / inset-0 / top-0", description: "positioning" },
       { class: "z-10 / z-50", description: "stacking order" },
       { class: "overflow-hidden / overflow-auto", description: "overflow" },
+    ],
+  },
+  {
+    title: "Effects & Transitions",
+    slug: "effects-transitions",
+    entries: [
+      { class: "opacity-0 / opacity-50 / opacity-100", description: "opacity" },
+      { class: "transition / duration-200 / ease-in-out", description: "animate a property change" },
+      { class: "ring-2 / ring-offset-2 / ring-blue-500", description: "focus / outline ring" },
+      { class: "backdrop-blur-sm / backdrop-brightness-90", description: "backdrop filters (overlays, modals)" },
+    ],
+  },
+  {
+    title: "Transforms & Interactivity",
+    slug: "transforms-interactivity",
+    entries: [
+      { class: "scale-105 / rotate-45 / -rotate-6", description: "scale & rotate" },
+      { class: "translate-x-2 / -translate-y-1", description: "translate" },
+      { class: "cursor-pointer / cursor-not-allowed", description: "cursor" },
+      { class: "select-none / pointer-events-none", description: "text selection / click-through" },
     ],
   },
 ];
