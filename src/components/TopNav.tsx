@@ -9,7 +9,7 @@ const PDF_FILE: Record<"extended" | "condensed", string> = {
 export default function TopNav({ active }: { active: "extended" | "condensed" }) {
   return (
     <nav className="print:hidden border-b border-neutral-200 dark:border-neutral-800">
-      <div className="mx-auto max-w-5xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
         <Link href="/" className="font-semibold text-neutral-900 dark:text-neutral-100">
           Tailwind CSS v4 Cheatsheet
         </Link>
