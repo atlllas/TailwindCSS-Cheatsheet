@@ -33,7 +33,24 @@ export default function SidebarNavContent({
       { rootMargin: "-10% 0px -80% 0px", threshold: 0 },
     );
     headingEls.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    // Short sections at the very end of the page can have no room left to
+    // cross the observer's trigger band once you're scrolled to the
+    // bottom, so the last heading never fires — force it active there.
+    function handleScroll() {
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActiveSlug(items[items.length - 1].slug);
+      }
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
     // Re-attach after a search filter changes which sections exist in the DOM.
   }, [items, query]);
 
