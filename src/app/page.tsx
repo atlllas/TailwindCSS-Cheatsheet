@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <SearchProvider>
       <div className="flex-1 flex flex-col">
-        <TopNav active="extended" />
+        <TopNav active="extended" navItems={NAV_ITEMS} />
 
         <div className="mx-auto w-full max-w-7xl px-6 flex-1 lg:flex lg:gap-10">
           <Sidebar items={NAV_ITEMS} />

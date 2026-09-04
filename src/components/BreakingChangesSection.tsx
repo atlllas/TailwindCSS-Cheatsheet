@@ -2,6 +2,7 @@
 
 import type { BreakingChange } from "@/lib/cheatsheet-data";
 import { useSearch, matches } from "./SearchContext";
+import CategoryIcon from "./CategoryIcon";
 
 export default function BreakingChangesSection({ changes }: { changes: BreakingChange[] }) {
   const { query } = useSearch();
@@ -16,7 +17,8 @@ export default function BreakingChangesSection({ changes }: { changes: BreakingC
       id="changed-since-v3"
       className="scroll-mt-6 mb-12 print:mb-4 rounded-lg border border-amber-300 bg-amber-50 p-5 print:p-3 dark:border-amber-900 dark:bg-amber-950/40"
     >
-      <h2 className="section-heading text-lg font-semibold text-amber-900 dark:text-amber-200 print:text-sm">
+      <h2 className="section-heading flex items-center gap-2 text-lg font-semibold text-amber-900 dark:text-amber-200 print:text-sm">
+        <CategoryIcon slug="changed-since-v3" className="h-4 w-4 shrink-0 print:hidden" />
         Changed since v3
       </h2>
       <p className="mt-1 text-sm text-amber-800 dark:text-amber-300 print:hidden">

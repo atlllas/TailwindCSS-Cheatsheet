@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import PrintButton from "./PrintButton";
 import TailwindMark from "./TailwindMark";
 import ThemeToggle from "./ThemeToggle";
+import DensityToggle from "./DensityToggle";
+import MobileNav from "./MobileNav";
 
 const PDF_FILE: Record<"extended" | "condensed", string> = {
   extended: "/pdf/tailwind-v4-cheatsheet-extended.pdf",
@@ -15,7 +17,15 @@ type ViewTransitionDocument = Document & {
   startViewTransition?: (callback: () => void) => void;
 };
 
-export default function TopNav({ active }: { active: "extended" | "condensed" }) {
+type NavItem = { slug: string; title: string };
+
+export default function TopNav({
+  active,
+  navItems,
+}: {
+  active: "extended" | "condensed";
+  navItems: NavItem[];
+}) {
   const router = useRouter();
 
   function handleTabClick(href: string, isAlreadyActive: boolean) {
@@ -39,12 +49,15 @@ export default function TopNav({ active }: { active: "extended" | "condensed" })
   return (
     <nav className="print:hidden border-b border-neutral-200 dark:border-neutral-800">
       <div className="mx-auto max-w-7xl px-6 py-4 flex flex-wrap items-center justify-between gap-4 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:flex-nowrap">
-        <Link href="/" className="flex items-center gap-2.5 sm:justify-self-start">
-          <TailwindMark className="h-6 w-6 shrink-0" />
-          <span className="font-semibold text-neutral-900 dark:text-neutral-100">
-            Tailwind CSS v4 Cheatsheet
-          </span>
-        </Link>
+        <div className="flex items-center gap-1 sm:justify-self-start">
+          <MobileNav items={navItems} />
+          <Link href="/" className="flex items-center gap-2.5">
+            <TailwindMark className="h-6 w-6 shrink-0" />
+            <span className="font-semibold text-neutral-900 dark:text-neutral-100">
+              Tailwind CSS v4 Cheatsheet
+            </span>
+          </Link>
+        </div>
         <div className="flex items-center gap-2 text-sm sm:justify-self-center">
           <Link
             href="/"
@@ -78,6 +91,7 @@ export default function TopNav({ active }: { active: "extended" | "condensed" })
             Download PDF
           </a>
           <PrintButton />
+          <DensityToggle />
           <ThemeToggle />
         </div>
       </div>
