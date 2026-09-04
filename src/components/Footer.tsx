@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://github.com/atlllas/TailwindCSS-Cheatsheet/issues/new?title=Content+issue&body=Which+class+or+section%3F%0A%0AWhat%27s+wrong%3F%0A"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-neutral-500 transition-colors hover:text-sky-600 dark:text-neutral-400 dark:hover:text-sky-400"
+            className="font-mono text-xs text-neutral-500 transition-colors hover:text-red-600 dark:text-neutral-400 dark:hover:text-red-400"
           >
             Report an issue
           </a>
