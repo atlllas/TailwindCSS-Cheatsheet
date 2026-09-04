@@ -6,13 +6,9 @@ import PrintButton from "./PrintButton";
 import TailwindMark from "./TailwindMark";
 import ThemeToggle from "./ThemeToggle";
 import MobileNav from "./MobileNav";
+import DownloadPdfMenu from "./DownloadPdfMenu";
 
 const GITHUB_URL = "https://github.com/atlllas/TailwindCSS-Cheatsheet";
-
-const PDF_FILE: Record<"extended" | "condensed", string> = {
-  extended: "/pdf/tailwind-v4-cheatsheet-extended.pdf",
-  condensed: "/pdf/tailwind-v4-cheatsheet-condensed.pdf",
-};
 
 type ViewTransitionDocument = Document & {
   startViewTransition?: (callback: () => void) => void;
@@ -84,13 +80,7 @@ export default function TopNav({
           </Link>
         </div>
         <div className="flex items-center gap-2 text-sm sm:justify-self-end">
-          <a
-            href={PDF_FILE[active]}
-            download
-            className="rounded-md px-3 py-1.5 text-neutral-600 transition-colors hover:bg-sky-50 hover:text-sky-700 dark:text-neutral-300 dark:hover:bg-sky-950/40 dark:hover:text-sky-300"
-          >
-            Download PDF
-          </a>
+          <DownloadPdfMenu active={active} />
           <PrintButton />
           <a
             href={GITHUB_URL}

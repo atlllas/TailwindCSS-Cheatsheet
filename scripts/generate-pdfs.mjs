@@ -13,6 +13,7 @@ const OUT_DIR = path.join(process.cwd(), "public", "pdf");
 
 const PAGES = [
   { route: "/", file: "tailwind-v4-cheatsheet-extended.pdf" },
+  { route: "/?v3=0", file: "tailwind-v4-cheatsheet-extended-no-changes.pdf" },
   { route: "/condensed", file: "tailwind-v4-cheatsheet-condensed.pdf" },
 ];
 

@@ -16,10 +16,7 @@ export const metadata: Metadata = {
     "An up-to-date, printable Tailwind CSS v4 utility class reference, grouped by category.",
 };
 
-const NAV_ITEMS = [
-  { slug: "changed-since-v3", title: "Changed since v3" },
-  ...CHEATSHEET_GROUPS.map((group) => ({ slug: group.slug, title: group.title })),
-];
+const GROUP_NAV_ITEMS = CHEATSHEET_GROUPS.map((group) => ({ slug: group.slug, title: group.title }));
 
 const LAST_UPDATED_LABEL = new Date(`${LAST_UPDATED}T00:00:00Z`).toLocaleDateString("en-US", {
   year: "numeric",
@@ -43,7 +40,18 @@ const jsonLd = {
   },
 };
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ v3?: string }>;
+}) {
+  const params = await searchParams;
+  const hideBreakingChanges = params.v3 === "0";
+  const changes = hideBreakingChanges ? [] : V4_BREAKING_CHANGES;
+  const navItems = hideBreakingChanges
+    ? GROUP_NAV_ITEMS
+    : [{ slug: "changed-since-v3", title: "Changed since v3" }, ...GROUP_NAV_ITEMS];
+
   return (
     <SearchProvider>
       <SectionCollapseProvider>
@@ -52,10 +60,10 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div className="flex-1 flex flex-col">
-          <TopNav active="extended" navItems={NAV_ITEMS} />
+          <TopNav active="extended" navItems={navItems} />
 
           <div className="mx-auto w-full max-w-7xl px-6 flex-1 lg:flex lg:gap-10">
-            <Sidebar items={NAV_ITEMS} />
+            <Sidebar items={navItems} />
 
             <div className="min-w-0 flex-1">
               <header className="pt-14 pb-10 print:pt-0 print:pb-3">
@@ -79,10 +87,10 @@ export default function Home() {
                 </div>
               </header>
 
-              <BreakingChangesSection changes={V4_BREAKING_CHANGES} />
+              <BreakingChangesSection changes={changes} />
 
               <div className="pb-24 print:pb-6 flex flex-col gap-10 print:gap-3">
-                <NoResultsNotice groups={CHEATSHEET_GROUPS} changes={V4_BREAKING_CHANGES} />
+                <NoResultsNotice groups={CHEATSHEET_GROUPS} changes={changes} />
                 {CHEATSHEET_GROUPS.map((group) => (
                   <GroupSection key={group.slug} group={group} />
                 ))}
