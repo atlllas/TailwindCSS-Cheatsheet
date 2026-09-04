@@ -32,7 +32,7 @@ export default function Sidebar({ items }: { items: NavItem[] }) {
 
   return (
     <aside className="print:hidden hidden lg:block w-56 shrink-0">
-      <nav className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto py-10 pr-4">
+      <nav className="sticky top-6 py-10 pr-4">
         <div className="relative mb-4">
           <svg
             viewBox="0 0 20 20"
