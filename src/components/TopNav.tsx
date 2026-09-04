@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PrintButton from "./PrintButton";
 import TailwindMark from "./TailwindMark";
+import ThemeToggle from "./ThemeToggle";
 
 const PDF_FILE: Record<"extended" | "condensed", string> = {
   extended: "/pdf/tailwind-v4-cheatsheet-extended.pdf",
@@ -77,6 +78,7 @@ export default function TopNav({ active }: { active: "extended" | "condensed" })
             Download PDF
           </a>
           <PrintButton />
+          <ThemeToggle />
         </div>
       </div>
     </nav>

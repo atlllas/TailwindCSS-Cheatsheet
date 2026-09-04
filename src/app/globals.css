@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
+/* Dark mode is toggled manually (see ThemeToggle) via a `dark` class on
+   <html>, not purely by OS preference — the inline script in layout.tsx
+   sets the initial class from localStorage / matchMedia before paint. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -10,13 +20,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -34,9 +37,13 @@ body {
 }
 
 @media print {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
+  /* Force light regardless of the `dark` class — printing should never
+     inherit dark mode, even though the class itself isn't stripped until
+     the beforeprint handler in ThemeToggle runs. */
+  :root,
+  :root.dark {
+    --background: #ffffff !important;
+    --foreground: #171717 !important;
   }
 
   @page {
