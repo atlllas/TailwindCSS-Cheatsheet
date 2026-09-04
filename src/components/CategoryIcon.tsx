@@ -107,13 +107,13 @@ const ICON_PATHS: Record<string, ReactNode> = {
   "state-variants": (
     <>
       <rect x="2" y="6" width="12" height="4" rx="2" />
-      <circle cx="10" cy="8" r="2.2" fill="currentColor" stroke="none" />
+      <circle cx="10" cy="8" r="1.3" fill="currentColor" stroke="none" />
     </>
   ),
   "states-responsive": (
     <>
       <rect x="2" y="6" width="12" height="4" rx="2" />
-      <circle cx="10" cy="8" r="2.2" fill="currentColor" stroke="none" />
+      <circle cx="10" cy="8" r="1.3" fill="currentColor" stroke="none" />
     </>
   ),
 };
