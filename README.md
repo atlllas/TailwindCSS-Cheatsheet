@@ -24,9 +24,9 @@ Both are browsable in the app and downloadable as PDF (`public/pdf/`).
   currently in view; a mobile drawer exposes the same nav below the `lg`
   breakpoint.
 - **Click to copy** — click any class entry to copy its exact text.
-- **Dark mode** and a **compact/comfortable density** toggle, both
-  manually switchable and persisted to `localStorage` (with an inline
-  init script so there's no flash of the wrong state on load).
+- **Dark mode** toggle, manually switchable and persisted to
+  `localStorage` (with an inline init script so there's no flash of the
+  wrong theme on load).
 - **Printable** — "Print / Save as PDF" in the browser, or download the
   pre-generated PDFs, use the same print stylesheet and stay in sync.
 - Cross-fade page transition between Extended/Condensed via the native

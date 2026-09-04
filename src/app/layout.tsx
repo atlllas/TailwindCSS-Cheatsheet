@@ -54,9 +54,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script
-          // Runs before paint so there's no flash of the wrong theme/density.
+          // Runs before paint so there's no flash of the wrong theme.
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d);var c=localStorage.getItem("density")==="compact";document.documentElement.classList.toggle("compact",c);}catch(e){}})();`,
+            __html: `(function(){try{var s=localStorage.getItem("theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d);}catch(e){}})();`,
           }}
         />
       </head>

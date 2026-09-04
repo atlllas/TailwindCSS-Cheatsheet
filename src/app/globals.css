@@ -5,10 +5,6 @@
    sets the initial class from localStorage / matchMedia before paint. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Compact density is toggled manually (see DensityToggle), same pattern
-   as dark mode — a `compact` class on <html>, persisted to localStorage. */
-@custom-variant compact (&:where(.compact, .compact *));
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
