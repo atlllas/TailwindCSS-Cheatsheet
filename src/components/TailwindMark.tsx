@@ -7,7 +7,7 @@ export default function TailwindMark({ className = "h-6 w-6" }: { className?: st
       <defs>
         <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#38bdf8" />
-          <stop offset="100%" stopColor="#4f46e5" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
       </defs>
       <g transform="translate(0,260) scale(0.1,-0.1)" fill={`url(#${gradientId})`}>
