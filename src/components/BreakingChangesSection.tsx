@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import type { BreakingChange } from "@/lib/cheatsheet-data";
 import { useSearch, matches } from "./SearchContext";
+import { useCollapsible } from "./SectionCollapseContext";
 import CategoryIcon from "./CategoryIcon";
 
 export default function BreakingChangesSection({ changes }: { changes: BreakingChange[] }) {
   const { query } = useSearch();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useCollapsible(false);
   const rows = changes.filter((change) =>
     matches(query, change.from, change.to, change.note ?? ""),
   );

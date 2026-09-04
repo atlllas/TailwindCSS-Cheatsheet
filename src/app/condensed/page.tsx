@@ -5,12 +5,34 @@ import Sidebar from "@/components/Sidebar";
 import { SearchProvider } from "@/components/SearchContext";
 import CondensedGroupCard from "@/components/CondensedGroupCard";
 import NoResultsNotice from "@/components/NoResultsNotice";
-import { CONDENSED_GROUPS } from "@/lib/cheatsheet-data";
+import { CONDENSED_GROUPS, LAST_UPDATED } from "@/lib/cheatsheet-data";
 
 export const metadata: Metadata = {
   title: "Tailwind CSS v4 Cheatsheet (Condensed)",
   description:
     "A 1-2 page printable quick reference of the most-used Tailwind CSS v4 utility classes.",
+};
+
+const LAST_UPDATED_LABEL = new Date(`${LAST_UPDATED}T00:00:00Z`).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Tailwind CSS v4 Cheatsheet — Condensed",
+  description:
+    "A 1-2 page printable quick reference of the most-used Tailwind CSS v4 utility classes.",
+  url: "https://tailwindcss.imatlas.dev/condensed",
+  dateModified: LAST_UPDATED,
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Tailwind CSS v4 Cheatsheet",
+    url: "https://tailwindcss.imatlas.dev",
+  },
 };
 
 const NAV_ITEMS = CONDENSED_GROUPS.map((group) => ({
@@ -33,6 +55,10 @@ export default function Condensed() {
 
   return (
     <SearchProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="flex-1 flex flex-col">
         <TopNav active="condensed" navItems={NAV_ITEMS} />
 
@@ -51,6 +77,9 @@ export default function Condensed() {
                   See the extended cheatsheet
                 </Link>
                 .
+              </p>
+              <p className="mt-5 text-xs text-neutral-400 dark:text-neutral-500 print:hidden">
+                Last updated: {LAST_UPDATED_LABEL}
               </p>
             </header>
 

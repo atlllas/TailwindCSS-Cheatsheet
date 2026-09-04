@@ -2,11 +2,13 @@
 
 import type { CheatGroup } from "@/lib/cheatsheet-data";
 import { useSearch, matches } from "./SearchContext";
+import { useCollapsible } from "./SectionCollapseContext";
 import CopyableEntry from "./CopyableEntry";
 import CategoryIcon from "./CategoryIcon";
 
 export default function GroupSection({ group }: { group: CheatGroup }) {
   const { query } = useSearch();
+  const [open, setOpen] = useCollapsible(true);
   const entries = group.entries.filter((entry) =>
     matches(query, entry.class, entry.description),
   );
@@ -18,11 +20,34 @@ export default function GroupSection({ group }: { group: CheatGroup }) {
       id={group.slug}
       className="scroll-mt-6 rounded-lg border border-neutral-200 bg-white p-5 sm:p-6 print:p-3 print:rounded-none print:border-0 print:border-t print:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
     >
-      <h2 className="section-heading flex items-center gap-2 text-base font-semibold text-neutral-900 dark:text-neutral-100 mb-4 print:mb-1.5 print:text-sm print:pt-2">
-        <CategoryIcon slug={group.slug} className="h-4 w-4 shrink-0 text-sky-600 dark:text-sky-400 print:hidden" />
-        {group.title}
-      </h2>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 gap-x-8 print:gap-x-6 gap-y-3 print:gap-y-1">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls={`${group.slug}-body`}
+        className="w-full flex items-center justify-between gap-2 text-left print:pointer-events-none"
+      >
+        <h2 className="section-heading flex items-center gap-2 text-base font-semibold text-neutral-900 dark:text-neutral-100 print:text-sm print:pt-2">
+          <CategoryIcon slug={group.slug} className="h-4 w-4 shrink-0 text-sky-600 dark:text-sky-400 print:hidden" />
+          {group.title}
+        </h2>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500 transition-transform print:hidden ${open ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+      <ul
+        id={`${group.slug}-body`}
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 gap-x-8 print:gap-x-6 gap-y-3 print:gap-y-1 mt-4 print:mt-1.5 ${open ? "" : "hidden print:grid"}`}
+      >
         {entries.map((entry) => (
           <li key={entry.class} className="entry-row">
             <CopyableEntry

@@ -1,3 +1,7 @@
+// Bump this whenever the content below changes (new/renamed utilities,
+// corrected notes, etc.) — shown in the UI and used as JSON-LD dateModified.
+export const LAST_UPDATED = "2026-09-04";
+
 export type CheatEntry = {
   class: string;
   description: string;
