@@ -7,7 +7,7 @@ import CategoryIcon from "./CategoryIcon";
 
 export default function BreakingChangesSection({ changes }: { changes: BreakingChange[] }) {
   const { query } = useSearch();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const rows = changes.filter((change) =>
     matches(query, change.from, change.to, change.note ?? ""),
   );
