@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How the Tailwind CSS v4 Cheatsheet handles data — in short: it doesn't collect any.",
+  description: "How the Tailwind CSS v4 Cheatsheet handles data, including analytics.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -26,12 +26,28 @@ export default function PrivacyPage() {
                 collect an email address, a name, or any other personal data.
               </p>
               <p>
-                Browsing the cheatsheet and downloading a PDF both happen
-                entirely in{" "}
+                Browsing the cheatsheet and downloading a PDF or Markdown
+                file both happen entirely in{" "}
                 <span className="text-neutral-900 dark:text-neutral-100">
                   your browser
                 </span>{" "}
-                — nothing you do on this site is sent to a server or tracked.
+                — that content is never sent to a server.
+              </p>
+              <p>
+                We use{" "}
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-sky-600 hover:underline dark:text-sky-400"
+                >
+                  Google Analytics
+                </a>{" "}
+                to see aggregate usage — which pages get visited and roughly
+                how many people use the site. It sets cookies and collects
+                things like your approximate location, device/browser type,
+                and pages viewed. We don&apos;t use it to identify you
+                individually, and this site has no ads.
               </p>
               <p>
                 The infrastructure hosting the site (Vercel) may keep standard
@@ -40,7 +56,6 @@ export default function PrivacyPage() {
                 the infrastructure provider&apos;s own security and
                 performance purposes.
               </p>
-              <p>The site currently has no analytics and no ads.</p>
               <p>
                 For questions, you can reach us via{" "}
                 <a
