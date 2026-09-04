@@ -5,6 +5,8 @@ built because most cheatsheets floating around are still v3 (`shadow` instead
 of `shadow-sm`, `rounded` instead of `rounded-sm`, `flex-shrink-*` instead of
 `shrink-*`, etc.).
 
+Live at [tailwindcss.imatlas.dev](https://tailwindcss.imatlas.dev).
+
 Two versions:
 
 - **Extended** (`/`) — every utility category from the official docs, grouped,
@@ -13,6 +15,23 @@ Two versions:
   day, on one printable page.
 
 Both are browsable in the app and downloadable as PDF (`public/pdf/`).
+
+## Features
+
+- **Search** — filters every entry (and the "Changed since v3" table) by
+  class name or description. Press `/` anywhere on the page to focus it.
+- **Sidebar nav with scroll-spy** — highlights whichever section is
+  currently in view; a mobile drawer exposes the same nav below the `lg`
+  breakpoint.
+- **Click to copy** — click any class entry to copy its exact text.
+- **Dark mode** and a **compact/comfortable density** toggle, both
+  manually switchable and persisted to `localStorage` (with an inline
+  init script so there's no flash of the wrong state on load).
+- **Printable** — "Print / Save as PDF" in the browser, or download the
+  pre-generated PDFs, use the same print stylesheet and stay in sync.
+- Cross-fade page transition between Extended/Condensed via the native
+  View Transitions API (falls back to instant navigation if unsupported
+  or `prefers-reduced-motion` is set).
 
 ## Development
 
@@ -47,6 +66,9 @@ All cheatsheet data lives in `src/lib/cheatsheet-data.ts`:
 - `CONDENSED_GROUPS` — the short, high-frequency subset for the printable
   quick reference (kept intentionally small — see `LEFT_SLUGS` in
   `src/app/condensed/page.tsx` for how the two printed columns are balanced).
+
+New group slugs should also get an icon in `src/components/CategoryIcon.tsx`
+(falls back to no icon if a slug isn't mapped, so this is optional).
 
 Content was compiled from the official Tailwind CSS v4 docs
 (tailwindcss.com/docs) and the v4 upgrade guide. When Tailwind ships new

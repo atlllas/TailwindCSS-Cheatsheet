@@ -1,24 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SidebarNavContent from "./SidebarNavContent";
 
 type NavItem = { slug: string; title: string };
 
 export default function MobileNav({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  function close() {
+    setOpen(false);
+    triggerRef.current?.focus();
+  }
 
   useEffect(() => {
     if (!open) return;
     document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") close();
+    }
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
 
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Open menu"
@@ -34,10 +49,10 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
       </button>
 
       {open && (
-        <div className="lg:hidden fixed inset-0 z-50">
+        <div className="lg:hidden fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Navigation menu">
           <div
             className="absolute inset-0 bg-black/30"
-            onClick={() => setOpen(false)}
+            onClick={close}
             aria-hidden="true"
           />
           <div className="absolute inset-y-0 left-0 w-72 max-w-[85vw] overflow-y-auto bg-white p-5 shadow-xl dark:bg-neutral-900">
@@ -46,8 +61,9 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
                 Menu
               </span>
               <button
+                ref={closeRef}
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={close}
                 aria-label="Close menu"
                 className="rounded-md p-1.5 text-neutral-500 transition-colors hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
               >
@@ -56,7 +72,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
                 </svg>
               </button>
             </div>
-            <SidebarNavContent items={items} onNavigate={() => setOpen(false)} />
+            <SidebarNavContent items={items} onNavigate={close} />
           </div>
         </div>
       )}
