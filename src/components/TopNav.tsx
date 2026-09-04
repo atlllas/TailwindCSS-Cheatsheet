@@ -7,6 +7,7 @@ import TailwindMark from "./TailwindMark";
 import ThemeToggle from "./ThemeToggle";
 import MobileNav from "./MobileNav";
 import DownloadPdfMenu from "./DownloadPdfMenu";
+import MarkdownExportButton from "./MarkdownExportButton";
 
 const GITHUB_URL = "https://github.com/atlllas/TailwindCSS-Cheatsheet";
 
@@ -81,6 +82,7 @@ export default function TopNav({
         </div>
         <div className="flex items-center gap-2 text-sm sm:justify-self-end">
           <DownloadPdfMenu active={active} />
+          <MarkdownExportButton active={active} />
           <PrintButton />
           <a
             href={GITHUB_URL}
